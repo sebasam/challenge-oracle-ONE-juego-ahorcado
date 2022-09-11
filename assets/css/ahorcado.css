@@ -1,0 +1,21 @@
+*{
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size: 60px;
+    color: #FFFFFF;
+}
+.game{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('https://pm1.narvii.com/7738/00d4ef51980592b310fea886c56d03deef09de76r1-736-414v2_hq.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#nezuko-img{
+    width: 400px;
+}
