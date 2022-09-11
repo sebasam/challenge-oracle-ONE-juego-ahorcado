@@ -6,19 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challenge Ahorcado</title>
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/ahorcado.css">
+    <link rel="stylesheet" href="assets/css/generar.css">
+    <script src="assets/js/words.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="btn-container">
-            <a href="ahorcado.html"><button class="cssbuttons-io">
+            <button class="cssbuttons-io btn-game">
                 <span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg> Jugar</span>
-            </button></a>
+            </button>
 
-            <a href="generar.html"><button class="cssbuttons-io">
+            <button class="btn-generar cssbuttons-io">
                 <span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg> Generar</span>
-            </button></a>
+            </button>
         </div>
         <h1>Jugar Ahorcado</h1>
     </div>
+
+    <div id="game" class="hidde">
+        <div id="nezuko">
+
+        </div>
+        <div class="guessWord">
+            <span id="spanGuess"></span>
+        </div>
+        <div class="badWords">
+
+        </div>
+
+        <button class="cssbuttons-io" id="btn-inicio"><span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg> Inicio</span></button>
+        
+        <button class="cssbuttons-io" id="btn-generar"><span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg>Generar Palabra</span></button>
+    </div>
+
+    <div class="hidde" id="container-generar">
+        <div class="generar1">
+            <input style="width: 100%;height:50px;border-radius:50px" placeholder="Ingresa nueva palabra" id="myInput" type="text">
+            <button id="create" class="cssbuttons-io" type="button"><span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg>Generar palabra</span></button>
+        </div>
+        <div style="color:#120fbd; font-size: 40px; background-color:#FFFFFF;border-radius:50px;" class="words"></div>
+        <button id="play" class="cssbuttons-io" type="button"><span><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M24 12l-5.657 5.657-1.414-1.414L21.172 12l-4.243-4.243 1.414-1.414L24 12zM2.828 12l4.243 4.243-1.414 1.414L0 12l5.657-5.657L7.07 7.757 2.828 12zm6.96 9H7.66l6.552-18h2.128L9.788 21z" fill="currentColor"></path></svg> Inicio</span></button>
+    </div>
+
+    <script src="assets/js/ahorcado.js"></script>
 </body>
 </html>

@@ -1,4 +1,17 @@
 .generar{
     height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('https://www.geekmi.news/__export/1616984089038/sites/debate/img/2021/03/28/kokushibo1.jpg_341150531.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.generar1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

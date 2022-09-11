@@ -1,10 +1,25 @@
-console.log(words)
-const game = document.querySelector('.game')
+const container = document.querySelector('.container')
+const game = document.querySelector('#game')
 const nezuko = document.querySelector('#nezuko')
 const guess = document.querySelector('.guessWord')
-const span = document.querySelector('span')
+const span = document.querySelector('#spanGuess')
 const badWords = document.querySelector('.badWords')
+const btnGame = document.querySelector('.btn-game')
+const btnInicio = document.querySelector('#btn-inicio')
+const btnRegresar = document.querySelector('#btn-regresar')
+const btnGenerar = document.querySelector('.btn-generar')
+const btnGenerar2 = document.querySelector('#btn-generar')
+const containerGenerar = document.querySelector('#container-generar')
+
+const input = document.querySelector('#myInput')
+const button = document.querySelector('#create')
+const myWords = document.querySelector('.words')
+const btnPlay = document.querySelector('#play')
 const regex = /^[a-z ]/
+
+myWords.innerHTML = `
+            <span class="fs-1 text-success">Palabras para jugar: ${words.length}</span>
+        `
 
 const aleatory = () => {
     let max = words.length
@@ -19,8 +34,28 @@ let arrBadWords = []
 let myTry = 7
 let otherWords = aleatoryWord.split('')
 
-const generateUnderLines = () => {
+const sendWord = () => {
+    if(regex.test(input.value)){
+        words.push(input.value)
+        input.value = ''
+        myWords.innerHTML = `
+            <span class="fs-1 text-success">Palabras para jugar: ${words.length}</span>
+        `
+        
+    }else{
+        alert('Solo se permiten minúsculas y espacios')
+    }
+}
+
+const generateUnderLines = () => {       
     for(const word of aleatoryWord){
+        arrUnder.push('_')
+    }
+    span.innerHTML += arrUnder.join(' ')
+}
+
+const generateUnderLines2 = () => {       
+    for(const word of aleatoryWord2){
         arrUnder.push('_')
     }
     span.innerHTML += arrUnder.join(' ')
@@ -49,8 +84,9 @@ const generateGame = (key) => {
                 arrUnder[myIndex] = key
                 span.innerHTML = arrUnder.join(' ')            
                 setTimeout(() => {
-                    if(confirm('Ganaste!! Quieres volver a jugar?')){
+                    if(alert('Ganaste!! El juego se reiniciará')){
                         window.location.reload()
+
                     }else{
                         window.location.href = 'index.html'
                     }
@@ -67,7 +103,7 @@ const generateGame = (key) => {
                 badWords.innerHTML = arrBadWords.join(' ')
                 myTry -= 1                
                 if(myTry === 0){
-                    alert(`Ups!! Perdiste, intentalo de nuevo, la palabra era ${aleatoryWord}`)
+                    alert(`Ups perdiste!!, la palabra era ${aleatoryWord} el juego se reiniciará`)
                     window.location.reload()
                 }else{
                     nezuko.innerHTML = `
@@ -82,8 +118,52 @@ const generateGame = (key) => {
     }
 }
 
-generateUnderLines()
 
-document.addEventListener("keypress", (e) => {
-    generateGame(e.key)
+
+btnGame.addEventListener('click', () => {
+    container.classList.add('hidde')
+    game.classList.remove('hidde')
+    game.classList.add('game')
+    generateUnderLines()
+
+    document.addEventListener("keypress", (e) => {
+        generateGame(e.key)
+    })
+    
+})
+
+btnInicio.addEventListener('click', () => {
+    container.classList.remove('hidde')
+    game.classList.add('hidde')
+    game.classList.remove('game')
+    containerGenerar.classList.add('hidde')
+    containerGenerar.classList.remove('generar')
+})
+
+btnGenerar.addEventListener('click', () => {
+    container.classList.add('hidde')
+    game.classList.remove('game')
+    game.classList.add('hidde')
+    containerGenerar.classList.remove('hidde')
+    containerGenerar.classList.add('generar')
+
+})
+
+btnGenerar2.addEventListener('click', () => {
+    container.classList.add('hidde')
+    game.classList.remove('game')
+    game.classList.add('hidde')
+    containerGenerar.classList.remove('hidde')
+    containerGenerar.classList.add('generar')
+
+})
+
+button.addEventListener('click', () => {
+    sendWord()
+})
+
+btnPlay.addEventListener('click', () => {
+    container.classList.remove('hidde')
+    containerGenerar.classList.add('hidde')
+    containerGenerar.class
 })
